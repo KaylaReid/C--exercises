@@ -28,7 +28,7 @@ namespace Company // the namespace conects the files that all use this name
         public DateTime CreatedOn { get; } 
 
         // Create a public property for holding a list of current employees
-        public List<Employee> employees = new List<Employee>();
+        public List<Employee> EmployeeList = new List<Employee>();
         
     }
 
@@ -60,10 +60,19 @@ namespace Company // the namespace conects the files that all use this name
 
         // Assign the employees to the company
 
+        Apple.EmployeeList.Add(Steve);
+        Apple.EmployeeList.Add(Meg);
+        Apple.EmployeeList.Add(Kimmy);
+
         /*
             Iterate the company's employee list and generate the
             simple report shown above
         */
+
+        foreach (Employee Employee in Apple.EmployeeList){
+            Console.WriteLine($"{Employee.FirstName} {Employee.LastName} {Employee.Title} {Employee.StartDate}");
+        }
     }
+
 }
 }
