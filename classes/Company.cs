@@ -22,6 +22,5 @@ namespace Company // the namespace conects the files that all use this name
 
         // Create a public property for holding a list of current employees
         public List<Employee> EmployeeList = new List<Employee>();
-        
     }
 }
