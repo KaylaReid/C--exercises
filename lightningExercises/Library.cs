@@ -3,6 +3,13 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    /*
+    Make a Library class that has:
+        - Private List of Books (remember casing and naming convention here)
+        - Public Method to add a Book to the List of Books
+        - Public Address property
+        - Public Name property
+     */
     public class LibraryOfBooks 
     {
         public string Name { get; set; }
