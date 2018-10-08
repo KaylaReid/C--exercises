@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -11,7 +12,8 @@ namespace Library
         static void Main(string[] args)
         {
             // one way to make it 
-            Book AfraidOfTheDark = new Book(){
+            Book AfraidOfTheDark = new Book()
+            {
                 Title = "Afraid of the Dark",
                 Author = "Trevor Noah",
                 ISBN = "M27007s"
@@ -34,14 +36,28 @@ namespace Library
             TheHalfBloodPrince.ISBN = "k999ndufgsd873";
             
             Book FantasticBeasts = new Book();
-            FantasticBeasts.Title = "Fantastic Beats and where to Find Them ";
+            FantasticBeasts.Title = "Fantastic Beats and where to Find Them";
             FantasticBeasts.Author = "J.K. Rowling";
             FantasticBeasts.ISBN = "kdi983g8hf";
 
-            LibraryOfBooks library = new LibraryOfBooks() {
-                Name = "Downtown Library",
-                Address = "Main St."
+            Book Book1 = new Book();
+            Book1.Title = "Book 1";
+            Book1.Author = "Someone";
+            Book1.ISBN = "asdf898ndgjs";
+
+            // uses initalInventory constructor
+            List<Book> books = new List<Book>(){
+                Book1
             };
+            
+            // creating a new library send it books, name and address in one go
+            LibraryOfBooks library = new LibraryOfBooks(books, "Downtown Library", "Main St.");
+
+
+            // LibraryOfBooks library = new LibraryOfBooks(books) {
+            //     Name = "Downtown Library",
+            //     Address = "Main St."
+            // };
 
             library.AddBookToList(AfraidOfTheDark);
             library.AddBookToList(TheChamberOfSecrets);
