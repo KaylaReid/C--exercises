@@ -40,8 +40,29 @@ namespace linq
                     Console.WriteLine($"{n}");
                 }
             }
+
+            // Order these student names alphabetically, in descending order (Z to A)
+            List<string> names = new List<string>()
+            {
+                "Heather", "James", "Xavier", "Michelle", "Brian", "Nina",
+                "Kathleen", "Sophia", "Amir", "Douglas", "Zarley", "Beatrice",
+                "Theodora", "William", "Svetlana", "Charisse", "Yolanda",
+                "Gregorio", "Jean-Paul", "Evangelina", "Viktor", "Jacqueline",
+                "Francisco", "Tre"
+            };
+
+            List<string> descend = names.OrderByDescending(n => n).ToList();
+
+            foreach (string name in descend)
+            {
+                Console.WriteLine($"{name}");
+            }
+
+
+            // IEnumerable<string> descend = from name in names
+            // orderby name 
+            // select name.ToList();
+
         }
-    
-       
     }
 }
