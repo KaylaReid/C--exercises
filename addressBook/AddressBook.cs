@@ -5,12 +5,29 @@ namespace addressBook
 {
     public class AddressBook 
     {
-        // dict of contacts
-        Dictionary<Contact, email> AddressBookContact = new Dictionary<Contact, email>();
-
+        // Dictionary of contacts
+        Dictionary<string, Contact> addressBook = new Dictionary<string, Contact>();
 
         // two methods 
         // AddContact
+        public void AddContact(Contact contact) {
+            try 
+            {
+                addressBook.Add(contact.Email, contact);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("----------------------------");
+                Console.WriteLine($"This contact was already added {ex.Message}");
+            }
+        }
+
         // GetByEmail
+        public Contact GetByEmail(string email) 
+        {
+            return addressBook[email];
+        }
+
     }
 }
+
