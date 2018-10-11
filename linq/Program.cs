@@ -58,10 +58,26 @@ namespace linq
                 Console.WriteLine($"{name}");
             }
 
+            // Build a collection of these numbers sorted in ascending order
+            List<int> randomNumbers = new List<int>()
+            {
+                15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+            };
 
-            // IEnumerable<string> descend = from name in names
-            // orderby name 
-            // select name.ToList();
+            IEnumerable<int> accendingNumbers = from nums in randomNumbers
+            orderby nums ascending
+            select nums;
+
+            foreach (int N in accendingNumbers)
+            {
+                Console.WriteLine($"{N}");
+            }
+           
+
+
+
+
+
 
         }
     }
