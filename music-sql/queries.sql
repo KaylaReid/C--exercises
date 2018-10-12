@@ -81,7 +81,7 @@ UPDATE Song
 	SET ReleaseDate = "1/9/2010"
 	WHERE SongId = 22
 	;
-
+	
 SELECT g.Label, COUNT(al.AlbumId) AS AlbumCount
 FROM Genre g
 JOIN Album al ON al.GenreId = g.GenreId
@@ -105,7 +105,45 @@ ON s.ArtistId =ar.ArtistId
 WHERE ar.ArtistId = 33
 ;
 
+--6
+SELECT al.Title, COUNT(s.AlbumId) AS SongsInAlbum 
+FROM Album al
+JOIN Song s ON s.AlbumId = al.AlbumId 
+GROUP BY al.Title
+ORDER BY SongsInAlbum DESC
+;
 
+--7
+--Write a SELECT statement to display how many songs exist for each artist. 
+--You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+SELECT a.ArtistName, COUNT(s.ArtistId) AS SongsArtistHas
+FROM Artist a
+JOIN Song s ON a.ArtistId  = s.ArtistId
+GROUP BY a.ArtistName
+ORDER BY SongsArtistHas DESC
+;
 
+--8
+--Write a SELECT statement to display how many songs exist for each genre. 
+--You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+SELECT g.Label, COUNT(s.GenreId) AS SongsForEachG
+FROM Genre g 
+JOIN Song s ON s.GenreId = g.GenreId
+GROUP BY g.Label
+ORDER BY SongsForEachG DESC
+;
 
+--10
+SELECT s.Title,
+			MAX(s.SongLength)
+FROM Song s
+;
 
+--11
+--Modify the previous query to also display the title of the album.
+SELECT s.Title,
+			MAX(s.SongLength),
+			al.Title
+FROM Song s
+JOIN Album al ON s.AlbumId = al.AlbumId
+;
