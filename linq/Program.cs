@@ -164,6 +164,7 @@ namespace linq
                 }
             */
             List<Customer> millionaireReport = customers.Where(c => c.Balance >= 1_000_000)
+                .OrderBy(n => n.Name.Split(" ")[1])
                 .Select(c => new Customer()
                 {
                     Name = c.Name,
